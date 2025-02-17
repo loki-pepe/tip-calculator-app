@@ -29,6 +29,10 @@
 
 body {
     min-height: 100vh;
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.5rem;
 }
 
 button {
@@ -65,6 +69,21 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
-label {
+input[type=reset] {
+    font-size: 1.25rem;
+}
+
+label, legend {
     display: block;
+    font-size: 1rem;
+}
+
+label::after {
+    content: "/ person";
+    font-size: 0.8125rem;
+}
+
+output {
+    font-size: clamp(2rem, 1.3922rem + 2.5932vw, 3rem);
+    letter-spacing: clamp(-0.041875rem, -0.0293rem + -0.0535vw, -0.0625rem);
 }
