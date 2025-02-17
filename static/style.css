@@ -9,7 +9,9 @@
     /* Colors */
     --orange: hsl(13 70% 61%);
     --strong-cyan: hsl(172 67% 45%);
+    --hover-cyan: hsl(172 61% 77%);
     --very-dark-cyan: hsl(183 100% 15%);
+    --dim-cyan: hsl(183 78% 24%);
     --dark-grayish-cyan: hsl(186 14% 43%);
     --grayish-cyan: hsl(183 15% 56%);
     --light-grayish-cyan: hsl(185 41% 84%);
@@ -33,12 +35,35 @@ body {
     font-weight: 700;
     font-style: normal;
     font-size: 1.5rem;
+    background-color: var(--light-grayish-cyan);
 }
 
 button {
     display: block;
     font-size: inherit;
     font-family: inherit;
+    background-color: var(--very-dark-cyan);
+    color: var(--white);
+    border: none;
+}
+
+button:hover, button:focus {
+    background-color: var(--hover-cyan);
+    color: var(--very-dark-cyan);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button.selected {
+    background-color: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+}
+
+#calculation {
+    background-color: var(--very-dark-cyan);
+    color: var(--strong-cyan);
 }
 
 fieldset {
@@ -53,7 +78,25 @@ img {
 input {
     font-family: inherit;
     font-size: inherit;
-    color: inherit;
+    color: var(--very-dark-cyan);
+    background-color: var(--very-light-grayish-cyan);
+    border: 2px solid transparent;
+    text-align: end;
+    padding: 12px 24px;
+}
+
+input:hover, input:focus {
+    outline: none;
+    border-color: var(--strong-cyan);
+    cursor: pointer;
+}
+
+input:invalid {
+    border: 2px solid var(--orange);
+}
+
+input::placeholder {
+    opacity: 35%;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -70,12 +113,26 @@ input[type=number] {
 }
 
 input[type=reset] {
+    display: block;
     font-size: 1.25rem;
+    background-color: var(--strong-cyan);
+    text-transform: uppercase;
+}
+
+input[type=reset]:hover, input[type=reset]:focus {
+    background-color: var(--hover-cyan);
+    border-color: transparent;
+}
+
+input[type=reset]:disabled {
+    background-color: var(--dim-cyan);
+    cursor: auto;
 }
 
 label, legend {
     display: block;
     font-size: 1rem;
+    color: var(--dark-grayish-cyan);
 }
 
 label::after {
@@ -83,7 +140,15 @@ label::after {
     font-size: 0.8125rem;
 }
 
+main {
+    background-color: var(--white);
+}
+
 output {
     font-size: clamp(2rem, 1.3922rem + 2.5932vw, 3rem);
     letter-spacing: clamp(-0.041875rem, -0.0293rem + -0.0535vw, -0.0625rem);
+}
+
+output::before {
+    content: "$";
 }
