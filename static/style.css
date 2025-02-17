@@ -1,0 +1,70 @@
+@font-face {
+    font-family: "Space Mono";
+    src: url("../fonts/Space_Mono/SpaceMono-Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+}
+
+:root {
+    /* Colors */
+    --orange: hsl(13 70% 61%);
+    --strong-cyan: hsl(172 67% 45%);
+    --very-dark-cyan: hsl(183 100% 15%);
+    --dark-grayish-cyan: hsl(186 14% 43%);
+    --grayish-cyan: hsl(183 15% 56%);
+    --light-grayish-cyan: hsl(185 41% 84%);
+    --very-light-grayish-cyan: hsl(185 38% 97%);
+    --shadow-cyan: hsl(185 38% 50% / 20.07%);
+    --white: hsl(0 0% 100%);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+  
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+}
+
+button {
+    display: block;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+fieldset {
+    border: none;
+}
+  
+img {
+    display: block;
+    max-width: 100%;
+}
+
+input {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+label {
+    display: block;
+}
