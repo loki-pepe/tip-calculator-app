@@ -76,6 +76,15 @@ button.selected {
     opacity: 100%;
 }
 
+.error {
+    display: none;
+   color: var(--orange);
+}
+
+.input-container:has(input:invalid) .error {
+    display: block;
+}
+
 fieldset {
     border: none;
 }
@@ -191,6 +200,11 @@ label:has(+ output)::after {
     content: "/ person";
     font-size: 0.8125rem;
     color: var(--grayish-cyan);
+}
+
+.labels {
+    display: flex;
+    justify-content: space-between;
 }
 
 legend {
