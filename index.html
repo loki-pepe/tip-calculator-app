@@ -25,12 +25,14 @@
 
       <fieldset id="percent">
         <legend>Select Tip %</legend>
-        <button type="button">5%</button>
-        <button type="button">10%</button>
-        <button type="button">15%</button>
-        <button type="button">25%</button>
-        <button type="button">50%</button>
-        <input type="number" name="custom" id="custom" min="0" step="0.01" placeholder="Custom">
+        <div>
+          <button type="button">5%</button>
+          <button type="button">10%</button>
+          <button type="button">15%</button>
+          <button type="button">25%</button>
+          <button type="button">50%</button>
+          <input type="number" name="custom" id="custom" min="0" step="0.01" placeholder="Custom">
+        </div>
       </fieldset>
 
       <div>
@@ -39,11 +41,11 @@
       </div>
 
       <section id="calculation">
-        <div id="tip">
+        <div id="tip" class="result">
           <label for="tip">Tip Amount</label>
           <output for="amount percent people" name="tip">0.00</output>
         </div>
-        <div id="total">
+        <div id="total" class="result">
           <label for="total">Total</label>
           <output for="amount percent people" name="total">0.00</output>
         </div>
