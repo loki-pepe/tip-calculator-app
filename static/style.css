@@ -30,6 +30,10 @@
     margin: 0;
 }
 
+#amount {
+    background: url("../images/icon-dollar.svg") no-repeat 17px 50%, var(--very-light-grayish-cyan);
+}
+
 body {
     min-height: 100vh;
     font-family: "Space Mono", monospace;
@@ -128,9 +132,8 @@ input {
     background-color: var(--very-light-grayish-cyan);
     border: 2px solid transparent;
     text-align: end;
-    padding-inline: 14px;
+    padding: 4px 14px;
     width: 100%;
-    height: calc(1.5rem + 24px);
     caret-color: var(--strong-cyan);
 }
 
@@ -169,11 +172,17 @@ input[type=reset] {
     text-transform: uppercase;
     text-align: center;
     margin-block-start: 32px;
+    line-height: 1.8;
 }
 
-input[type=reset]:hover, input[type=reset]:focus {
+input[type=reset]:hover {
     background-color: var(--hover-cyan);
     border-color: transparent;
+}
+
+input[type=reset]:focus {
+    background-color: var(--hover-cyan);
+    border-color: var(--strong-cyan);
 }
 
 input[type=reset]:disabled {
@@ -206,6 +215,7 @@ label:has(+ output)::after {
 .labels {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 legend {
@@ -227,9 +237,14 @@ output::before {
     content: "$";
 }
 
+#people {
+    background: url("../images/icon-person.svg") no-repeat 15px 50%, var(--very-light-grayish-cyan);
+}
+
 .result {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .result:not(:last-child) {
