@@ -11,6 +11,7 @@
     --strong-cyan: hsl(172 67% 45%);
     --hover-cyan: hsl(172 61% 77%);
     --very-dark-cyan: hsl(183 100% 15%);
+    --very-dark-cyan-disabled: hsl(183 100% 15% / 35%);
     --dim-cyan: hsl(183 78% 24%);
     --olive-cyan: hsl(180 18% 40%);
     --dark-grayish-cyan: hsl(186 14% 43%);
@@ -41,6 +42,9 @@ body {
     font-style: normal;
     font-size: 1.5rem;
     background-color: var(--light-grayish-cyan);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 button {
@@ -73,6 +77,7 @@ button.selected {
     padding: 37px 24px 24px;
     margin-inline: 24px;
     border-radius: 15px;
+    flex: 0 1 413px;
 }
 
 #custom::placeholder {
@@ -92,17 +97,11 @@ fieldset {
     border: none;
 }
 
-fieldset > div {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 16px;
-    column-gap: 17px;
-}
-
 form {
     display: flex;
     flex-direction: column;
     gap: 32px;
+    flex: 0 1 379px;
 }
 
 form > div, form > fieldset {
@@ -149,6 +148,7 @@ input:invalid {
 }
 
 input::placeholder {
+    color: var(--very-dark-cyan);
     opacity: 35%;
 }
 
@@ -165,7 +165,7 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
-input[type=reset] {
+input#reset {
     display: block;
     font-size: 1.25rem;
     background-color: var(--strong-cyan);
@@ -175,18 +175,19 @@ input[type=reset] {
     line-height: 1.8;
 }
 
-input[type=reset]:hover {
+input#reset:hover {
     background-color: var(--hover-cyan);
     border-color: transparent;
 }
 
-input[type=reset]:focus {
+input#reset:focus {
     background-color: var(--hover-cyan);
     border-color: var(--strong-cyan);
 }
 
-input[type=reset]:disabled {
+input#reset:disabled {
     background-color: var(--dim-cyan);
+    color: var(--very-dark-cyan-disabled);
     cursor: auto;
 }
 
@@ -224,8 +225,13 @@ legend {
 
 main {
     background-color: var(--white);
-    padding-block: 32px;
+    padding: 32px 0;
     border-radius: 25px 25px 0 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 600px;
+    row-gap: 32px;
 }
 
 output {
@@ -241,12 +247,72 @@ output::before {
     background: url("../images/icon-person.svg") no-repeat 15px 50%, var(--very-light-grayish-cyan);
 }
 
+#percent-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 16px;
+    column-gap: 17px;
+}
+
 .result {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
 }
 
 .result:not(:last-child) {
     margin-block-end: 20px;
+}
+
+@media (min-width: 992px) {
+    body {
+        justify-content: center;
+    }
+
+    #calculation {
+        margin-block: 32px;
+        padding: 40px;
+        min-height: 417px;
+        display: grid;
+        grid-template-rows: auto auto 1fr;
+    }
+
+    #custom {
+        padding-inline: 8px;
+    }
+
+    #custom::placeholder {
+        text-align: center;
+    }
+
+    main {
+        max-width: 920px;
+        border-radius: 25px;
+        gap: 48px;
+        justify-content: end;
+        align-items: center;
+        padding: 0 32px;
+    }
+
+    form {
+        gap: 40px;
+    }
+
+    form > div, form > fieldset, #calculation {
+        margin-inline: 0;
+    }
+
+    #percent-buttons {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 14px;
+    }
+    
+    #reset {
+        align-self: end;
+    }
+
+    .result:not(:last-child) {
+        margin-block-end: 25px;
+    }
 }
