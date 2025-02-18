@@ -31,7 +31,7 @@
           <legend>Select Tip %</legend>
           <label for="custom" class="error">Invalid</label>
         </div>
-        <div>
+        <div id="percent-buttons">
           <button type="button" name="percent" id="5pc">5%</button>
           <button type="button" name="percent" id="10pc">10%</button>
           <button type="button" name="percent" id="15pc">15%</button>
@@ -48,19 +48,18 @@
         </div>
         <input type="number" name="people" id="people" min="1" step="1" placeholder="0">
       </div>
-
-      <section id="calculation">
-        <div id="tip" class="result">
-          <label for="tip">Tip Amount</label>
-          <output for="amount percent people" name="tip">0.00</output>
-        </div>
-        <div id="total" class="result">
-          <label for="total">Total</label>
-          <output for="amount percent people" name="total">0.00</output>
-        </div>
-        <input type="reset" value="Reset" disabled>
-      </section>
     </form>
+    <section id="calculation">
+      <div id="tip" class="result">
+        <label for="tip">Tip Amount</label>
+        <output form="calculator" for="amount percent people" name="tip">0.00</output>
+      </div>
+      <div id="total" class="result">
+        <label for="total">Total</label>
+        <output form="calculator" for="amount percent people" name="total">0.00</output>
+      </div>
+      <input form="calculator" type="reset" value="Reset" id="reset" name="reset" disabled>
+    </section>
   </main>
 </body>
 </html>
