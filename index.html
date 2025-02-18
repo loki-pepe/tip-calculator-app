@@ -18,8 +18,10 @@
   </header>
   <main>
     <form id="calculator">
-      <label for="amount">Bill</label>
-      <input type="number" name="amount" id="amount" min="0" step="0.01" placeholder="0">
+      <div>
+        <label for="amount">Bill</label>
+        <input type="number" name="amount" id="amount" min="0" step="0.01" placeholder="0">
+      </div>
 
       <fieldset id="percent">
         <legend>Select Tip %</legend>
@@ -31,22 +33,23 @@
         <input type="number" name="custom" id="custom" min="0" step="0.01" placeholder="Custom">
       </fieldset>
 
-      <label for="people">Number of People</label>
-      <input type="number" name="people" id=" people" min="1" step="1" placeholder="0">
+      <div>
+        <label for="people">Number of People</label>
+        <input type="number" name="people" id="people" min="1" step="1" placeholder="0">
+      </div>
+
+      <section id="calculation">
+        <div id="tip">
+          <label for="tip">Tip Amount</label>
+          <output for="amount percent people" name="tip">0.00</output>
+        </div>
+        <div id="total">
+          <label for="total">Total</label>
+          <output for="amount percent people" name="total">0.00</output>
+        </div>
+        <input type="reset" value="Reset">
+      </section>
     </form>
-
-    <section id="calculation">
-      <div id="tip">
-        <label for="tip">Tip Amount</label>
-        <output for="amount percent people" form="calculator" name="tip">0.00</output>
-      </div>
-      <div id="total">
-        <label for="total">Total</label>
-        <output for="amount percent people" form="calculator" name="total">0.00</output>
-      </div>
-      <input form="calculator" type="reset" value="Reset">
-    </section>
-
   </main>
 </body>
 </html>
