@@ -80,7 +80,6 @@ button.selected {
     display: none;
    color: var(--orange);
 }
-
 .input-container:has(input:invalid) .error {
     display: block;
 }
@@ -132,6 +131,7 @@ input {
     padding-inline: 14px;
     width: 100%;
     height: calc(1.5rem + 24px);
+    caret-color: var(--strong-cyan);
 }
 
 input:hover, input:focus {
@@ -142,6 +142,7 @@ input:hover, input:focus {
 
 input:invalid {
     border: 2px solid var(--orange);
+    caret-color: var(--orange);
 }
 
 input::placeholder {
