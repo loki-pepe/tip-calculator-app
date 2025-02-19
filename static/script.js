@@ -14,8 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!form.checkValidity()) {
             updateUI(0, 0);
         } else {
-            let [tip, total] = tipCalculator(getData(form));
-            updateUI(tip, total);
+            let {bill, tip, people} = parseData(getData(form));
+            let {tipPerPerson, totalPerPerson} = tipCalculator(bill, tip, people);
+            updateUI(tipPerPerson, totalPerPerson);
         }
     }
 
@@ -27,17 +28,21 @@ document.addEventListener('DOMContentLoaded', () => {
         return Math.ceil(f * 10**decimalDigits) / 10**decimalDigits;
     }
 
-    function tipCalculator(data) {
+    function parseData(data) {
         let people = parseInt(data.people);
         let bill = parseFloat(data.bill);
-        let tipPercent = parseFloat(data.percent);
+        let tip = parseFloat(data.percent);
+        
+        return {bill, tip, people};
+    }
 
+    function tipCalculator(bill, tipPercent, people) {
         let tip = tipPercent ? bill * tipPercent / 100 : 0;
 
         let tipPerPerson = ceilToFloat(tip / people, 2);
         let totalPerPerson = ceilToFloat((bill + tip) / people, 2);
 
-        return [tipPerPerson, totalPerPerson];
+        return {tipPerPerson, totalPerPerson};
     }
 
     function updateUI(tip, total) {
