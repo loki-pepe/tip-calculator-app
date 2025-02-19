@@ -3,18 +3,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const TIP = document.querySelector('#tip');
     const TOTAL = document.querySelector('#total');
     const RESET = document.querySelector('#clear');
+    const BUTTONTIPS = document.querySelectorAll('#percent-buttons button');
+    const CUSTOMTIP = document.querySelector('#custom');
+
 
     FORM.addEventListener('submit', handleSubmit);
     FORM.addEventListener('input', () => handleInput(FORM));
     RESET.addEventListener('click', () => {
-        FORM.reset();
+        unselect(BUTTONTIPS);
         toggleResetButton(false);
-    })
-
+        FORM.reset();
+    });
+    BUTTONTIPS.forEach(button => button.addEventListener('click', () => {
+        CUSTOMTIP.value = '';
+        setTip(button);
+        toggleResetButton(true);
+    }));
+    CUSTOMTIP.addEventListener('input', () => unselect(BUTTONTIPS));
 
 
     function ceilToFloat(f, decimalDigits) {
         return Math.ceil(f * 10**decimalDigits) / 10**decimalDigits;
+    }
+
+    function checkSelection(nodes) {
+        let selected = null;
+        nodes.forEach(node => {
+            if (node.classList.contains('selected')) {
+                selected = node;
+            }
+        })
+        return selected;
     }
 
     function getData(form) {
@@ -27,6 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
             updateUI(0, 0);
         } else {
             let {bill, tip, people} = parseData(getData(form));
+
+            let selectedTip = checkSelection(BUTTONTIPS);
+            if (selectedTip) {
+                tip = parseInt(selectedTip.textContent);
+            }
 
             toggleResetButton(!(isNaN(bill) && isNaN(tip) && isNaN(people)));
 
@@ -45,6 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
         let tip = parseFloat(data.percent);
         
         return {bill, tip, people};
+    }
+
+    function setTip(button) {
+        unselect(BUTTONTIPS);
+        button.classList.add('selected');
+        handleInput(FORM);
     }
 
     function tipCalculator(bill, tipPercent, people) {
@@ -69,6 +99,10 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             RESET.setAttribute('disabled', '');
         }
+    }
+
+    function unselect(nodes) {
+        nodes.forEach(node => node.classList.remove('selected'));
     }
 
     function updateUI(tip, total) {
