@@ -23,7 +23,7 @@
           <label for="bill">Bill</label>
           <label for="bill" class="error">Invalid</label>
         </div>
-        <input type="number" name="bill" id="bill" min="0" step="0.01" placeholder="0">
+        <input type="number" name="bill" id="bill" min="0" step="0.01" placeholder="0" required>
       </div>
 
       <fieldset id="percent-container" class="input-container">
@@ -46,17 +46,17 @@
           <label for="people">Number of People</label>
           <label for="people" class="error">Invalid</label>
         </div>
-        <input type="number" name="people" id="people" min="1" step="1" placeholder="0">
+        <input type="number" name="people" id="people" min="1" step="1" placeholder="0" required>
       </div>
     </form>
     <section id="calculation">
-      <div id="tip" class="result">
+      <div id="tip-container" class="result">
         <label for="tip">Tip Amount</label>
-        <output form="calculator" for="bill percent people" name="tip">0.00</output>
+        <output form="calculator" for="bill percent people" name="tip" id="tip">0.00</output>
       </div>
-      <div id="total" class="result">
+      <div id="total-container" class="result">
         <label for="total">Total</label>
-        <output form="calculator" for="bill percent people" name="total">0.00</output>
+        <output form="calculator" for="bill percent people" name="total" id="total">0.00</output>
       </div>
       <input form="calculator" type="reset" value="Reset" id="reset" name="reset" disabled>
     </section>
