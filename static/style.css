@@ -87,7 +87,7 @@ button.selected {
 
 .error {
     display: none;
-   color: var(--orange);
+    color: var(--orange);
 }
 .input-container:has(input:invalid) .error {
     display: block;
@@ -165,7 +165,7 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
-input#reset {
+input#clear {
     display: block;
     font-size: 1.25rem;
     background-color: var(--strong-cyan);
@@ -175,17 +175,17 @@ input#reset {
     line-height: 1.8;
 }
 
-input#reset:hover {
+input#clear:hover {
     background-color: var(--hover-cyan);
     border-color: transparent;
 }
 
-input#reset:focus {
+input#clear:focus {
     background-color: var(--hover-cyan);
     border-color: var(--strong-cyan);
 }
 
-input#reset:disabled {
+input#clear:disabled {
     background-color: var(--dim-cyan);
     color: var(--very-dark-cyan-disabled);
     cursor: auto;
@@ -308,7 +308,7 @@ output::before {
         column-gap: 14px;
     }
     
-    #reset {
+    #clear {
         align-self: end;
     }
 
