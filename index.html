@@ -18,12 +18,12 @@
   </header>
   <main>
     <form id="calculator">
-      <div id="amount-container" class="input-container">
+      <div id="bill-container" class="input-container">
         <div class="labels">
-          <label for="amount">Bill</label>
-          <label for="amount" class="error">Invalid</label>
+          <label for="bill">Bill</label>
+          <label for="bill" class="error">Invalid</label>
         </div>
-        <input type="number" name="amount" id="amount" min="0" step="0.01" placeholder="0">
+        <input type="number" name="bill" id="bill" min="0" step="0.01" placeholder="0">
       </div>
 
       <fieldset id="percent-container" class="input-container">
@@ -52,11 +52,11 @@
     <section id="calculation">
       <div id="tip" class="result">
         <label for="tip">Tip Amount</label>
-        <output form="calculator" for="amount percent people" name="tip">0.00</output>
+        <output form="calculator" for="bill percent people" name="tip">0.00</output>
       </div>
       <div id="total" class="result">
         <label for="total">Total</label>
-        <output form="calculator" for="amount percent people" name="total">0.00</output>
+        <output form="calculator" for="bill percent people" name="total">0.00</output>
       </div>
       <input form="calculator" type="reset" value="Reset" id="reset" name="reset" disabled>
     </section>

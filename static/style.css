@@ -31,7 +31,7 @@
     margin: 0;
 }
 
-#amount {
+#bill {
     background: url("../images/icon-dollar.svg") no-repeat 17px 50%, var(--very-light-grayish-cyan);
 }
 
