@@ -235,6 +235,7 @@ main {
     flex-direction: column;
     max-width: 600px;
     row-gap: 32px;
+    box-shadow: 0 32px 43px 0 var(--shadow-cyan);
 }
 
 output {
