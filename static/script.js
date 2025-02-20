@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const BUTTONTIPS = document.querySelectorAll('#percent-buttons button');
     const CUSTOMTIP = document.querySelector('#custom');
 
+    handleInput(FORM);
 
     FORM.addEventListener('submit', handleSubmit);
     FORM.addEventListener('input', () => handleInput(FORM));
@@ -41,8 +42,28 @@ document.addEventListener('DOMContentLoaded', () => {
         return Object.fromEntries(new FormData(form));
     }
 
+    function handleError(formField) {
+        let message = 'Invalid.';
+        if (formField.validity.badInput) {
+            message = 'Must be a number';
+        } else if (formField.validity.stepMismatch) {
+            if (formField.id === 'bill') {
+                message = 'Must be valid amount';
+            } else {
+                message = 'Must be whole number';
+            }
+        } else if (formField.validity.rangeUnderflow) {
+            message = 'Must be positive number'
+            if (formField.id === 'people') {
+                if (formField.value === '0') message = 'Can\'t be zero';
+            }
+        }
+        setErrorMessage(formField, message);
+    }
+
     function handleInput(form) {
         if (!form.checkValidity()) {
+            handleInvalidForm(form);
             toggleResetButton(true);
             updateUI(0, 0);
         } else {
@@ -60,6 +81,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function handleInvalidForm(form) {
+        form.querySelectorAll('input').forEach(input => {
+            if (!input.checkValidity()) {
+                handleError(input);
+            }
+        });
+    }
+
     function handleSubmit(e) {
         e.preventDefault();
     }
@@ -70,6 +99,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let tip = parseFloat(data.percent);
         
         return {bill, tip, people};
+    }
+
+    function setErrorMessage(formField, message) {
+        let errorLabel = document.querySelector(`.error[for='${formField.id}']`);
+        errorLabel.textContent = message;
     }
 
     function setTip(button) {
