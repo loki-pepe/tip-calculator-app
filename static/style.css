@@ -77,7 +77,6 @@ button.selected {
     padding: 37px 24px 24px;
     margin-inline: 24px;
     border-radius: 15px;
-    flex: 0 1 413px;
 }
 
 #custom::placeholder {
@@ -134,6 +133,10 @@ input {
     padding: 4px 14px;
     width: 100%;
     caret-color: var(--strong-cyan);
+}
+
+input:not(#custom) {
+    padding-inline-start: 32px;
 }
 
 input:hover, input:focus {
@@ -229,7 +232,7 @@ main {
     border-radius: 25px 25px 0 0;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
     max-width: 600px;
     row-gap: 32px;
 }
@@ -237,6 +240,7 @@ main {
 output {
     font-size: clamp(2rem, 1.3922rem + 2.5932vw, 3rem);
     letter-spacing: clamp(-0.041875rem, -0.0293rem + -0.0535vw, -0.0625rem);
+    overflow: scroll;
 }
 
 output::before {
@@ -274,8 +278,10 @@ output::before {
         margin-block: 32px;
         padding: 40px;
         min-height: 417px;
+        width: 413px;
         display: grid;
         grid-template-rows: auto auto 1fr;
+        grid-template-columns: 100%;
     }
 
     #custom {
@@ -292,6 +298,7 @@ output::before {
         gap: 48px;
         justify-content: end;
         align-items: center;
+        flex-direction: row;
         padding: 0 32px;
     }
 
