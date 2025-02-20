@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         unselect(BUTTONTIPS);
         toggleResetButton(false);
         FORM.reset();
+        handleInput(FORM);
     });
     BUTTONTIPS.forEach(button => button.addEventListener('click', () => {
         CUSTOMTIP.value = '';
