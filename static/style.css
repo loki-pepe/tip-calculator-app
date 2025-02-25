@@ -108,7 +108,7 @@ form > div, form > fieldset {
 }
 
 header {
-    height: 144px;
+    margin-block: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -273,16 +273,21 @@ output::before {
 @media (min-width: 992px) {
     body {
         justify-content: center;
+        row-gap: 83px;
     }
 
     #calculation {
-        margin-block: 32px;
+      /*  margin-block: 36px 28px;*/
         padding: 40px;
         min-height: 417px;
         width: 413px;
         display: grid;
         grid-template-rows: auto auto 1fr;
         grid-template-columns: 100%;
+    }
+
+    #clear {
+        align-self: end;
     }
 
     #custom {
@@ -300,7 +305,7 @@ output::before {
         justify-content: end;
         align-items: center;
         flex-direction: row;
-        padding: 0 32px;
+        padding: 36px 32px 28px;
     }
 
     form {
@@ -311,13 +316,13 @@ output::before {
         margin-inline: 0;
     }
 
+    header {
+        margin-block: -80px 0;
+    }
+
     #percent-buttons {
         grid-template-columns: repeat(3, 1fr);
         column-gap: 14px;
-    }
-    
-    #clear {
-        align-self: end;
     }
 
     .result:not(:last-child) {
