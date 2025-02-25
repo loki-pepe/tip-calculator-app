@@ -44,18 +44,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleError(formField) {
         let message = 'Invalid.';
+        const messages = {
+            number: 'Must be a number',
+            amount: 'Must be valid amount',
+            integer: 'Must be a whole number',
+            positive: 'Must be positive number',
+            zero: 'Can\'t be zero',
+        }
         if (formField.validity.badInput) {
-            message = 'Must be a number';
+            message = messages.number;
         } else if (formField.validity.stepMismatch) {
             if (formField.id === 'bill') {
-                message = 'Must be valid amount';
+                message = messages.amount;
             } else {
-                message = 'Must be whole number';
+                message = messages.integer;
             }
         } else if (formField.validity.rangeUnderflow) {
-            message = 'Must be positive number'
+            message = messages.positive;
             if (formField.id === 'people') {
-                if (formField.value === '0') message = 'Can\'t be zero';
+                if (formField.value === '0') message = messages.zero;
             }
         }
         setErrorMessage(formField, message);
