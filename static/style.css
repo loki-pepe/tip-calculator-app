@@ -135,7 +135,7 @@ input {
     caret-color: var(--strong-cyan);
 }
 
-input:not(#custom) {
+input#bill, input#people {
     padding-inline-start: 32px;
 }
 
